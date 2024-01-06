@@ -1,0 +1,45 @@
+{
+  "name": "learndaxa",
+  "version": "1.0.0",
+  "builtin-baseline": "ce46ba8777d8f899d8dc11afefb8eca39293df39",
+  "dependencies": [
+    {
+      "name": "daxa",
+      "features": [
+        "utils-pipeline-manager-spirv-validation",
+        "utils-imgui",
+        "utils-mem",
+        "utils-pipeline-manager-glslang",
+        "utils-task-graph"
+      ]
+    },
+    {
+      "name": "glfw3",
+      "features": [
+        "xlib",
+        "wayland"
+      ]
+    },
+    {
+      "name": "imgui",
+      "features": [
+        "glfw-binding",
+        "docking-experimental"
+      ]
+    }
+  ],
+  "overrides": [
+    {
+      "name": "glfw3",
+      "version-string": "custom"
+    }
+  ],
+  "vcpkg-configuration": {
+    "overlay-ports": [
+      "lib/daxa",
+      "lib/daxa/cmake/vcpkg-overlay-ports/dxc",
+      "lib/daxa/cmake/vcpkg-overlay-ports/glfw3",
+      "lib/daxa/cmake/vcpkg-overlay-ports/fsr2"
+    ]
+  }
+}
