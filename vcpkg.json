@@ -36,10 +36,7 @@
   ],
   "vcpkg-configuration": {
     "overlay-ports": [
-      "lib/daxa",
-      "lib/daxa/cmake/vcpkg-overlay-ports/dxc",
-      "lib/daxa/cmake/vcpkg-overlay-ports/glfw3",
-      "lib/daxa/cmake/vcpkg-overlay-ports/fsr2"
+      "lib/daxa"
     ]
   }
 }
