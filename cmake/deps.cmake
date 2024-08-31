@@ -3,11 +3,14 @@
 # NOTE: This is temporary, and should really be consumed from the official vcpkg port of Daxa.
 # Daxa is in active development, so for the sake of the tutorial, we're using a newer version
 # of Daxa than is available through vcpkg directly.
-if(NOT EXISTS "${CMAKE_CURRENT_LIST_DIR}/../lib/daxa/CMakeLists.txt")
+if(NOT EXISTS "${CMAKE_CURRENT_LIST_DIR}/../lib/Daxa/CMakeLists.txt")
     find_package(Git REQUIRED)
     file(MAKE_DIRECTORY "${CMAKE_CURRENT_LIST_DIR}/../lib")
-    execute_process(COMMAND ${GIT_EXECUTABLE} clone https://github.com/Ipotrick/Daxa daxa
+    execute_process(COMMAND ${GIT_EXECUTABLE} clone https://github.com/Ipotrick/Daxa
         WORKING_DIRECTORY "${CMAKE_CURRENT_LIST_DIR}/../lib"
+        COMMAND_ERROR_IS_FATAL ANY)
+    execute_process(COMMAND ${GIT_EXECUTABLE} checkout 26d1a108ead92fb4960e34bb011ffd1be94ee84b
+        WORKING_DIRECTORY "${CMAKE_CURRENT_LIST_DIR}/../lib/Daxa"
         COMMAND_ERROR_IS_FATAL ANY)
 endif()
 

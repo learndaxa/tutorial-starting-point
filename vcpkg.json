@@ -1,12 +1,11 @@
 {
   "name": "learndaxa",
   "version": "1.0.0",
-  "builtin-baseline": "ce46ba8777d8f899d8dc11afefb8eca39293df39",
+  "builtin-baseline": "b346ee32f13f3bf2ef19ac02f982f6938f7a84ea",
   "dependencies": [
     {
       "name": "daxa",
       "features": [
-        "utils-pipeline-manager-spirv-validation",
         "utils-imgui",
         "utils-mem",
         "utils-pipeline-manager-glslang",
@@ -24,8 +23,7 @@
   ],
   "vcpkg-configuration": {
     "overlay-ports": [
-      "lib/daxa",
-      "lib/daxa/cmake/vcpkg-overlay-ports/glfw3"
+      "lib/Daxa"
     ]
   }
 }
