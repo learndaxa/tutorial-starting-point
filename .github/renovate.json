@@ -1,7 +1,8 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:recommended"
+    "config:recommended",
+    ":dependencyDashboard"
   ],
   "customManagers": [
     {
@@ -25,11 +26,11 @@
         "/cmake/deps\\.cmake$/"
       ],
       "matchStrings": [
-        "execute_process\\(COMMAND \\$\\{GIT_EXECUTABLE\\} checkout (?<currentValue>[^\\)\\s]+)\\)"
+        "checkout (?<currentValue>[^ ]+) # renovate: Use the latest daxa release"
       ],
       "depNameTemplate": "Ipotrick/Daxa",
-      "datasourceTemplate": "github-tags",
-      "versioningTemplate": "semver"
+      "packageNameTemplate": "https://github.com/Ipotrick/Daxa",
+      "datasourceTemplate": "git-tags"
     }
   ]
 }
