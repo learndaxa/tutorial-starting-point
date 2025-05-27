@@ -7,8 +7,8 @@
     {
       "customType": "regex",
       "description": "Update vcpkg.json git hash",
-      "fileMatch": [
-        "vcpkg\\.json$"
+      "managerFilePatterns": [
+        "/vcpkg\\.json$/"
       ],
       "matchStrings": [
         "\"builtin-baseline\":\\s*\"(?<currentDigest>[a-f0-9]{40})\""
@@ -21,8 +21,8 @@
     {
       "customType": "regex",
       "description": "Update daxa version",
-      "fileMatch": [
-        "cmake/deps\\.cmake$"
+      "managerFilePatterns": [
+        "/cmake/deps\\.cmake$/"
       ],
       "matchStrings": [
         "execute_process\\(COMMAND \\$\\{GIT_EXECUTABLE\\} checkout (?<currentValue>[^\\)\\s]+)\\)"
