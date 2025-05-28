@@ -4,6 +4,8 @@
     "config:recommended",
     ":dependencyDashboard"
   ],
+  "timezone": "Etc/GMT",
+  "schedule": ["0 0 * * 6"],
   "customManagers": [
     {
       "customType": "regex",
