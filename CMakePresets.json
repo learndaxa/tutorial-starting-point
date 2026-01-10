@@ -1,70 +1,81 @@
 {
-  "version": 3,
-  "cmakeMinimumRequired": {
-    "major": 3,
-    "minor": 19,
-    "patch": 0
-  },
-  "configurePresets": [
-    {
-      "name": "Debug",
-      "description": "Debug configuration",
-      "hidden": false,
-      "generator": "Visual Studio 17 2022",
-      "binaryDir": "${sourceDir}/build/Debug",
-      "condition": {
-        "type": "equals",
-        "lhs": "${hostSystemName}",
-        "rhs": "Windows"
-      },
-      "cacheVariables": {
-        "CMAKE_BUILD_TYPE": "Debug"
-      }
-    },
-    {
-      "name": "Release",
-      "description": "Release configuration",
-      "hidden": false,
-      "generator": "Visual Studio 17 2022",
-      "binaryDir": "${sourceDir}/build/Release",
-      "condition": {
-        "type": "equals",
-        "lhs": "${hostSystemName}",
-        "rhs": "Windows"
-      },
-      "cacheVariables": {
-        "CMAKE_BUILD_TYPE": "RelWithDebInfo"
-      }
-    },
-    {
-      "name": "Debug",
-      "description": "Debug configuration",
-      "hidden": false,
-      "generator": "Ninja",
-      "binaryDir": "${sourceDir}/build/Debug",
-      "condition": {
-        "type": "equals",
-        "lhs": "${hostSystemName}",
-        "rhs": "Linux"
-      },
-      "cacheVariables": {
-        "CMAKE_BUILD_TYPE": "Debug"
-      }
-    },
-    {
-      "name": "Release",
-      "description": "Release configuration",
-      "hidden": false,
-      "generator": "Ninja",
-      "binaryDir": "${sourceDir}/build/Release",
-      "condition": {
-        "type": "equals",
-        "lhs": "${hostSystemName}",
-        "rhs": "Linux"
-      },
-      "cacheVariables": {
-        "CMAKE_BUILD_TYPE": "RelWithDebInfo"
-      }
-    }
-  ]
+    "version": 3,
+    "configurePresets": [
+        {
+            "name": "Default-Windows",
+            "hidden": true,
+            "generator": "Visual Studio 17 2022",
+            "condition": {
+                "type": "equals",
+                "lhs": "${hostSystemName}",
+                "rhs": "Windows"
+            }
+        },
+        {
+            "name": "Default-Linux",
+            "hidden": true,
+            "generator": "Ninja",
+            "condition": {
+                "type": "equals",
+                "lhs": "${hostSystemName}",
+                "rhs": "Linux"
+            },
+            "cacheVariables": {
+                "CMAKE_C_COMPILER": "/usr/bin/clang",
+                "CMAKE_CXX_COMPILER": "/usr/bin/clang++"
+            }
+        },
+        {
+            "name": "Default-Debug",
+            "hidden": true,
+            "binaryDir": "${sourceDir}/build/Debug",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug"
+            }
+        },
+        {
+            "name": "Default-Release",
+            "hidden": true,
+            "binaryDir": "${sourceDir}/build/Release",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "RelWithDebInfo"
+            }
+        },
+        {
+            "name": "Debug-Windows",
+            "hidden": false,
+            "inherits": [
+                "Default-Windows",
+                "Default-Debug"
+            ],
+            "displayName": "Debug Windows"
+        },
+        {
+            "name": "Debug-Linux",
+            "hidden": false,
+            "inherits": [
+                "Default-Linux",
+                "Default-Debug"
+            ],
+            "displayName": "Debug Linux"
+        },
+        {
+            "name": "Release-Windows",
+            "hidden": false,
+            "inherits": [
+                "Default-Windows",
+                "Default-Release"
+            ],
+            "displayName": "Release Windows"
+        },
+        {
+            "name": "Release-Linux",
+            "hidden": false,
+            "inherits": [
+                "Default-Linux",
+                "Default-Release"
+            ],
+            "displayName": "Release Linux"
+        }
+    ]
 }
