@@ -2,3 +2,6 @@
 build/*
 vcpkg_installed/*
 lib/*
+
+# JetBrains' IDEs
+.idea/
